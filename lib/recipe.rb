@@ -11,8 +11,9 @@ class Recipe
   end
 
   def amount_required(ingredient)
-    ingredients_required.find do |item, amount|
-      return amount if item == ingredient
+    ingredients_required.reduce(0) do |acc, (item, amount)|
+      acc += amount if item == ingredient
+      acc
     end
   end
 
