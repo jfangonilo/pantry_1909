@@ -29,7 +29,7 @@ class Recipe
     ingredients_required.map do |item, amount|
       {
         ingredient: item.name,
-        amount: amount.to_s + " " +  item.unit
+        amount: amount.to_s + " " + item.unit
       }
     end
   end

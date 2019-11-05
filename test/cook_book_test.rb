@@ -33,12 +33,14 @@ class CookBookTest < MiniTest::Test
   end
 
   def test_summary
-    skip
-    expected [
+    @cookbook.add_recipe(@mac_and_cheese)
+    @cookbook.add_recipe(@burger)
+
+    expected = [
       { :name=>"Mac and Cheese", :details=>
         {:ingredients=>
-          [{:ingredient=>"Macaroni", :amount=>"8 oz"},
-          {:ingredient=>"Cheese", :amount=>"2 C"}],
+          [{:ingredient=>"Cheese", :amount=>"2 C"},
+            {:ingredient=>"Macaroni", :amount=>"8 oz"}],
             :total_calories=>440}},
       { :name=>"Burger", :details=>
         {:ingredients=>

@@ -8,4 +8,13 @@ class CookBook
   def add_recipe(recipe)
     recipes << recipe
   end
+
+  def summary
+    recipes.map do |recipe|
+      {
+        name: recipe.name,
+        details: recipe.details
+      }
+    end
+  end
 end
