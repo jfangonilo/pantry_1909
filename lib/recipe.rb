@@ -24,4 +24,20 @@ class Recipe
   def calories
     ingredients_required.sum {|item, amount| item.calories * amount}
   end
+
+  def ingredient_summary
+    ingredients_required.map do |item, amount|
+      {
+        ingredient: item.name,
+        amount: amount.to_s + " " +  item.unit
+      }
+    end
+  end
+
+  def details
+    {
+      ingredients: ingredient_summary,
+      total_calories: calories
+    }
+  end
 end
